@@ -8,10 +8,11 @@ const htmlRoutes = require('./routes/htmlRoutes');
 app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
 app.use(express.json());
-app.use('/api', apiRoutes);
-app.use('/', htmlRoutes);
 // Serves static files
 app.use(express.static('public'));
+
+app.use('/api', apiRoutes);
+app.use('/', htmlRoutes);
 
 app.listen(PORT, () => {
     console.log(`API server is now on port ${PORT}!`);
